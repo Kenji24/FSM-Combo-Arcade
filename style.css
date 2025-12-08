@@ -1,0 +1,144 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333;
+    margin: 0;
+}
+
+.arcade-cabinet {
+    width: 450px; /* Lebar sedikit diperbesar */
+    background-color: #000;
+    border: 10px solid #555;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+}
+
+.keyboard-info {
+    text-align: center;
+    color: #fff;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.display {
+    width: 100%;
+    height: 500px;
+    background-color: #000; 
+    border: 5px solid #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.animation-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+#character-layer {
+    z-index: 10;
+}
+
+#effect-layer {
+    z-index: 5;
+}
+
+#projectile-layer {
+    z-index: 15;
+}
+
+#text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    
+    display: flex;
+    justify-content: center;
+    
+    align-items: center; 
+    padding-top: 0;
+
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    color: #0c0; 
+}
+
+.display.animating-mode #text-overlay {
+    align-items: flex-start;
+    padding-top: 240px;     
+}
+
+.animation-frame {
+    width: 640px; 
+    height: 512px;
+    background-size: cover;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.direction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.visual-input {
+    width: 50px;
+    height: 50px;
+    background-color: #555;
+    color: #fff;
+    border: 3px solid #333;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: background-color 0.1s, box-shadow 0.1s;
+    user-select: none; /* Cegah teks terpilih */
+}
+
+/* Styling saat tombol visual 'menyala' (aktif) */
+.visual-input.active {
+    background-color: #ff0; /* Kuning terang */
+    box-shadow: 0 0 10px #ff0, 0 0 20px #ff0;
+    color: #000;
+}
+
+.space-key {
+    width: 150px; /* Tombol Space lebih lebar */
+    background-color: #00f;
+}
+
+.space-key.active {
+    background-color: #0ff; /* Cyan terang saat Space aktif */
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    color: #000;
+}

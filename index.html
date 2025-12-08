@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Combo FSM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="arcade-cabinet">
+        <div class="keyboard-info">
+            Gunakan **Arrow Keys** (Panah) dan **Spacebar** untuk Input!
+        </div>
+
+        <div id="game-display-container" class="display">
+            <div id="character-layer" class="animation-layer"></div>
+            <div id="effect-layer" class="animation-layer"></div>
+            <div id="projectile-layer" class="animation-layer"></div>
+            <div id="text-overlay">Tekan tombol keyboard untuk memulai.</div>
+        </div>
+
+        <div class="control-panel">
+            <div class="direction-container">
+                <div class="row">
+                    <div id="visual-up" class="visual-input up-key">↑</div>
+                </div>
+                <div class="row">
+                    <div id="visual-left" class="visual-input left-key">←</div>
+                    <div id="visual-down" class="visual-input down-key">↓</div>
+                    <div id="visual-right" class="visual-input right-key">→</div>
+                </div>
+            </div>
+            
+            <div id="visual-space" class="visual-input space-key">SPACE</div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
