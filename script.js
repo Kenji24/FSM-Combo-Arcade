@@ -158,7 +158,6 @@ let currentProjectileX = 0;
 const gameEngine = new GameFSM(); 
 
 // --- DOM Elements ---
-const display = document.getElementById('game-display');
 const charLayer = document.getElementById('character-layer');
 const effectLayer = document.getElementById('effect-layer');
 const textOverlay = document.getElementById('text-overlay');
@@ -202,6 +201,7 @@ function updateDisplay(message, type = 'normal', isMove = false) {
     // Pastikan layer animasi kosong saat IDLE
     if (charLayer) charLayer.style.backgroundImage = 'none';
     if (effectLayer) effectLayer.style.backgroundImage = 'none';
+    if (projectileLayer) projectileLayer.style.backgroundImage = 'none';
 }
 
 const LAYER_ELEMENTS = {
@@ -228,7 +228,6 @@ function startAnimation(moveName) {
     for (const layerName in config.LAYERS) {
         const layerConfig = config.LAYERS[layerName];
         
-        // **PERBAIKAN DI SINI:** Gunakan LAYER_ELEMENTS yang sudah didefinisikan
         const element = LAYER_ELEMENTS[layerConfig.ELEMENT_ID]; 
         
         if (!element) {
@@ -326,6 +325,7 @@ function stopAnimation() {
     // Reset background layer
     if (charLayer) charLayer.style.backgroundImage = 'none';
     if (effectLayer) effectLayer.style.backgroundImage = 'none';
+    if (projectileLayer) projectileLayer.style.backgroundImage = 'none';
 
     initialize(); 
 }
@@ -345,7 +345,6 @@ function deactivateVisual(key) {
 }
 
 // --- Integrasi FSM ---
-
 function handleInput(key) {
     // 1. Kirim input ke FSM (sama seperti sebelumnya)
     const command = KEY_MAP[key];
